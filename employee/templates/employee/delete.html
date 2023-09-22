@@ -1,0 +1,21 @@
+{% extends 'employee/base.html' %}
+{% block title %}
+    <title>Delete</title>
+{% endblock title %}
+{% block content %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br><br>
+        <div class="notification is-warning" role="alert">
+            Are you sure you want to delete <strong>"{{ employee.emp_name }}</strong>"?
+        </div>
+        <p>
+            <a class="button" href="{% url 'employees-list' %}">
+                Go back
+            </a>
+        </p>
+        <p>
+            <input class="button is-danger mt-2 is-outlined" type="submit" value="Confirm">
+        </p>
+    </form>
+{% endblock content %}
