@@ -48,3 +48,7 @@ def delete_employee(request, pk):
         'employee': employee,
     }
     return render(request, 'employee/delete.html', context)
+
+
+# def index(request):
+#     return render(request, 'index.html')

@@ -1,21 +1,31 @@
 <h1 class="title">Social Media Login</h1>
-<footer class="footer">
-  <div class="content is-flex">
-    <p class="buttons">
-      <button class="button  is-inverted">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-        <span>GitHub</span>
-      </button>
-
-      <button class="button  is-inverted">
-        <span class="icon">
-          <i class="fab fa-google"></i>
-          
-        </span>
-        <span>Google</span>
-      </button>
-    </p>
-  </div>
-</footer>
+<div class="container">
+  <footer class="footer">
+    <div class="content is-flex">
+      <p class="buttons">
+        <button class="button  is-inverted">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>GitHub</span>
+        </button>
+  
+        <a class="button is-inverted" href="{% url 'account_login' %}">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+          <span>Google</span>
+        </a>
+      </p>
+    </div>
+                  <!-- <li class="nav-item">
+                      <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                  </li>
+                 <li class="nav-item">
+                      <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'account_reset_password' %}">Forgot Password</a>
+                  </li>  -->
+  </footer>
+</div>

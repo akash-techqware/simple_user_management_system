@@ -24,6 +24,9 @@
         .notification a:not(.button):not(.dropdown-item) {
             text-decoration: none;
         }
+        .footer{
+            background-color: #013d34;
+        }
     </style>
     {% block title %}
     {% endblock title %}
@@ -36,8 +39,10 @@
         </div>
 
     </div>
-    {% block footer %}
-    {% endblock footer %}
+    <div class="container is-max-desktop">
+        {% block footer %}
+        {% endblock footer %}
+    </div>
     <!-- <section class="section is-large">
         {% include 'employee/footer.html' %}
     </section> -->
