@@ -1,50 +1,74 @@
 {% extends 'employee/base.html' %}
 {% block title %}
-    <title>Employee List</title>
+<title>Employee List</title>
 {% endblock title %}
 {% block content %}
-    <h1 class="title has-text-info is-uppercase has-text-weight-bold" style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Employees Information</h1>
-    <table class="table is-hoverable is-fullwidth is-center table-cell-border">
-        <tbody>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Role</th>
-                        <th>Salary</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                {% for emp in employees %}
-                <tr>
-                    <th>
-                        <img style="height: 100px; width: auto;" src="{{ emp.imageURL }}" class="card-img-top" alt="not found">
-                    </th>
-                    <td >{{ emp.emp_name }}</td>
-                    <td>{{ emp.emp_email }}</td>
-                    <td>{{ emp.emp_contact }}</td>
-                    <td>{{ emp.emp_role }}</td>
-                    <td>{{ emp.emp_salary }}</td>
-                    <td>
-                        <a style="margin-right: 30px;" href="{% url 'edit-employee' emp.id %}">
-                            <button class="button is-link is-rounded">Edit</button>
-                        </a>
-                        <a href="{% url 'delete-employee' emp.id %}">
-                            <button class="button is-danger is-rounded">Remove</button>
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div class="columns is-centered">
-        <a href="{% url 'create-employee' %}"><button type="button" class="button is-success is-rounded">Add New Info</button></a>
-    </div>
-    <div class="container is-widescreen">
-        <div class="notification">
-            {% include 'employee/footer.html' %}
+
+{% if user.is_authenticated %}
+
+<h1 class="title has-text-info is-uppercase has-text-weight-bold"
+    style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Employees Information</h1>
+<div class="navbar-end">
+    <div class="navbar-item">
+        <div class="buttons">
+            <a class="button is-danger" href="{% url 'account_logout' %}">Logout</a>
         </div>
     </div>
+</div>
+<table class="table is-hoverable is-fullwidth is-center table-cell-border">
+    <tbody>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Role</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        {% for emp in employees %}
+        <tr>
+            <th>
+                <img style="height: 100px; width: auto;" src="{{ emp.imageURL }}" class="card-img-top" alt="not found">
+            </th>
+            <td>{{ emp.emp_name }}</td>
+            <td>{{ emp.emp_email }}</td>
+            <td>{{ emp.emp_contact }}</td>
+            <td>{{ emp.emp_role }}</td>
+            <td>{{ emp.emp_salary }}</td>
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'edit-employee' emp.id %}">
+                    <button class="button is-link ">Edit</button>
+                </a>
+                <a href="{% url 'delete-employee' emp.id %}">
+                    <button class="button is-danger ">Remove</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="columns is-centered">
+    <a href="{% url 'create-employee' %}"><button type="button" class="button is-success ">Add New
+            Info</button></a>
+</div>
+{% else %}
+<h1 class="title has-text-info is-uppercase has-text-weight-semibold"
+    style="text-align: center; padding-top: 1em; padding-bottom: 1em;">"Login To View Employees Information"</h1>
+<!-- <a class="button is-inverted" href="{% url 'account_login' %}">Login</a> -->
+<div class="navbar-end">
+    <div class="navbar-item">
+        <div class="buttons">
+            <a class="button is-inverted" href="{% url 'account_reset_password' %}">Forgot Password</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="container is-widescreen">
+    <div class="">
+        {% include 'employee/footer.html' %}
+    </div>
+</div>
 {% endblock content %}

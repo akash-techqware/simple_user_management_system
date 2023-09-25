@@ -10,11 +10,39 @@
         {% csrf_token %}
         {{ form.as_p }}
         <!-- <img src="{{ employee.imageURL }}" alt="{{ employee.emp_name }} Image"></li> -->
-        <p>
-            <a class="button" href="{% url 'employees-list' %}">
-                Go back
-            </a>
-        </p>
-        <input type="submit" class="button is-success is-rounded mt-3">
+        <div class=" mt-2 columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+            <div class="column">
+                <input type="submit" class="button is-success">
+            </div>
+            <div class="column">
+            </div>
+            <div class="column">
+            </div>
+            <div class="column">
+            </div>
+            <div class="column">
+            </div>
+            <div class="column">
+                <a class="button" href="{% url 'employees-list' %}"><i class="fa fa-arrow-left" > &nbsp; Go back</i></a>
+            </div>
+        </div>
+        <!-- <input type="submit" class="button is-success mt-3"> -->
     </form>
+
+    <!-- <div class=" mt-2 columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+        <div class="column">
+            <input type="submit" class="button is-success">
+        </div>
+        <div class="column">
+        </div>
+        <div class="column">
+        </div>
+        <div class="column">
+        </div>
+        <div class="column">
+        </div>
+        <div class="column">
+            <a class="button" href="{% url 'employees-list' %}">Go back</a>
+        </div>
+    </div> -->
 {% endblock content %}
