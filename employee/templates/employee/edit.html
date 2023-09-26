@@ -8,8 +8,12 @@
     <h1 class="title has-text-info is-uppercase has-text-weight-bold" style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Edit Employee Information</h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        <div class="columns">
+            <div class="column is-one-fifth">
+                <img src="{{ employee.imageURL }}" alt="{{ employee.emp_name }}"></li>
+            </div>
+        </div>
         {{ form.as_p }}
-        <!-- <img src="{{ employee.imageURL }}" alt="{{ employee.emp_name }} Image"></li> -->
         <div class=" mt-2 columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
             <div class="column">
                 <input type="submit" class="button is-success">

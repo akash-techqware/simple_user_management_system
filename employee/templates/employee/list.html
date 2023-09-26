@@ -8,10 +8,17 @@
 
 <h1 class="title has-text-info is-uppercase has-text-weight-bold"
     style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Employees Information</h1>
+    <div class="navbar-start">
+        <div class="nav-item">
+            <div class="buttons">
+            <p><strong>Welcome, {{user.username}} <span class="bd-emoji-bis">😃</span></strong></p>
+        </div>
+        </div>
+    </div>
 <div class="navbar-end">
     <div class="navbar-item">
         <div class="buttons">
-            <a class="button is-danger" href="{% url 'account_logout' %}">Logout</a>
+            <a class="button is-danger" href="{% url 'account_logout' %}">Details</a>
         </div>
     </div>
 </div>
